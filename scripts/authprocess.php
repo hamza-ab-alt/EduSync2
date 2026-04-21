@@ -50,4 +50,37 @@ if (isset($_POST['register'])) {
     }
 }
 
+// ---------------------------------------------------------
+// PARTIE 2 : L-CONNEXION (LOGIN)
+// ---------------------------------------------------------
+if (isset($_POST['login'])) {
+    
+    $email = $_POST['email'];
+    $pass  = $_POST['password'];
+
+    if (!empty($email) && !empty($pass)) {
+        
+        // 1. N-qelbou 3la l-user f l-base de données b l-email
+        $sql = "SELECT * FROM users WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
+
+        // 2. Vériﬁcation: Wach password li kteb hwa li 3ndna m-khbi?
+        if ($user && password_verify($pass, $user['password'])) {
+            
+            // 3. N-3tiwh l-badge (Session)
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['nom']     = $user['nom'];
+
+            // Dkhal l-Dashboard
+            header("Location: ../public/dashboard.php");
+            exit();
+        } else {
+            // Error: Email awla Password ghalat
+            header("Location: ../public/login.php?error=wrong_creds");
+            exit();
+        }
+    }
+}
 ?>
