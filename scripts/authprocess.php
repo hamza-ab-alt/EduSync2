@@ -22,7 +22,7 @@ if (isset($_POST['register'])) {
         
         // Vériﬁcation 2: Wach l-passwords b-jouj bhal bhal?
         if ($pass !== $pass_confirm) {
-            header("Location: ../public/register.php?error=password_mismatch");
+            header("Location: ../public/registrer.php?error=password_mismatch");
             exit();
         }
 
@@ -31,21 +31,22 @@ if (isset($_POST['register'])) {
 
         try {
             // N-7et-ou l-user l-jdid f l-base de données
-            $sql = "INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO users (firstname, lastename, email, password,role_id) VALUES (?, ?, ?, ?,?)";
             $stmt = $conn->prepare($sql);
-            $stmt->execute([$nom, $prenom, $email, $pass_safe]);
+            $stmt->execute([$nom, $prenom, $email, $pass_safe,3]);
 
             // Safi t-زاد! n-siftouh l-login
             header("Location: ../public/login.php?status=success");
             exit();
 
         } catch (PDOException $e) {
+            // echo $e->getMessage();
             // Ila kyn chi email m-3awed (UNIQUE)
-            header("Location: ../public/register.php?error=email_exists");
+            header("Location: ../public/registrer.php?error=email_exists");
             exit();
         }
     } else {
-        header("Location: ../public/register.php?error=empty_fields");
+        header("Location: ../public/registrer.php?error=empty_fields");
         exit();
     }
 }
