@@ -28,6 +28,9 @@ if (isset($_POST['register'])) {
         header("Location: ../public/registrer.php?error=empty_fields");
         exit();
     }
+}
+
+
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $pass  = $_POST['password'];
@@ -37,9 +40,8 @@ if (isset($_POST['login'])) {
     $stmt->execute([$email]);
     $user = $stmt->fetch();
     if ($user && password_verify($pass, $user['password'])) {
-        session_start();
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['nom']     = $user['nom'];
+        $_SESSION['firstname']= $user['firstname'];
 
         header("Location: ../public/dashboard.php");
         exit();
