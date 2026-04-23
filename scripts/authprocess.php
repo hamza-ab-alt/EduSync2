@@ -36,7 +36,7 @@ if (isset($_POST['register'])) {
             $stmt->execute([$nom, $prenom, $email, $pass_safe,3]);
 
             // Safi t-زاد! n-siftouh l-login
-            header("Location: ../public/login.php?status=success");
+            header("Location: ../public/dashboard.php");
             exit();
 
         } catch (PDOException $e) {
