@@ -35,7 +35,7 @@ if(!isset($nom)){
             </div>
 
             <h1 class="text-4xl font-extrabold text-slate-800 mb-2">
-                Welcome to <span class="text-blue-600">EduSync</span>
+                Welcome to <span class="text-gray-600">EduSync</span>
             </h1>
             
 

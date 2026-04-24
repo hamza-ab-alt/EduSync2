@@ -9,7 +9,7 @@
 <body class="bg-gray-100 flex items-center justify-center h-screen">
 
     <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 class="text-2xl font-bold mb-6 text-center text-blue-600">EduSync - Inscription</h2>
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-600">EduSync - Inscription</h2>
 
         <form action="../scripts/authprocess.php" method="POST" class="space-y-4">
             
@@ -37,7 +37,7 @@
     <input type="password" name="password_confirm" required class="w-full mt-1 p-2 border border-gray-300 rounded-md">
 </div>
 
-            <button type="submit" name="register" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition duration-200">
+            <button type="submit" name="register" class="w-full bg-gray-500 text-white p-2 rounded-md hover:bg-blue-700 transition duration-200">
                 S'inscrire
             </button>
 
