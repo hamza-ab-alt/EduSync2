@@ -35,8 +35,8 @@
         <?php if (isset($_GET['error'])): ?>
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4 text-sm">
         <?php 
-            if ($_GET['error'] == "wrong_creds") echo "L-email or l-password incorrect";
-            if ($_GET['error'] == "access_denied") echo "Khass t-connecta bach t-chouf l-dashboard!";
+            if ($_GET['error'] == "wrong_creds") echo "L-email or password incorrect";
+            if ($_GET['error'] == "access_denied") echo "connected to see dashboard";
         ?>
     </div>
 <?php endif; ?>
